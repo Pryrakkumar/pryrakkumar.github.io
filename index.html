@@ -4,36 +4,45 @@
   <meta charset="UTF-8" />
   <title>Pryrak Kumar | Environmental Science Research</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <!-- SEO -->
-  <meta name="description" content="Portfolio of Pryrak Kumar, M.Sc. Environmental Science student specializing in air pollution, PM2.5 analysis, environmental health, and R-based environmental data science.">
-  <meta name="keywords" content="Pryrak Kumar, environmental science, air pollution, PM2.5, Delhi, R programming, regression, time-series, MSc Environmental Science, IGNOU">
-  
+
+  <!-- SEO meta tags -->
+  <meta name="description"
+        content="Portfolio of Pryrak Kumar, M.Sc. Environmental Science student focusing on air pollution, PM2.5, environmental health and R-based environmental data science.">
+  <meta name="keywords"
+        content="Pryrak Kumar, environmental science, air pollution, PM2.5, Delhi, R programming, regression, time-series, MSc Environmental Science, IGNOU">
+
   <style>
+    /* ===============================
+       THEME VARIABLES
+       =============================== */
     :root {
-      --bg: #0f172a;
-      --bg-soft: #020617;
+      --bg: #0b1220;            /* slightly softer dark */
+      --bg-soft: #0f172a;       /* card background */
       --card: #111827;
       --accent: #22c55e;
       --accent-soft: rgba(34, 197, 94, 0.16);
-      --border-subtle: rgba(148, 163, 184, 0.35);
+      --border-subtle: rgba(148, 163, 184, 0.4);
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
-      --nav-bg: rgba(15, 23, 42, 0.92);
+      --nav-bg: rgba(15, 23, 42, 0.94);
     }
 
+    /* Light mode variables */
     body.light {
-      --bg: #f4f6f7;
+      --bg: #edf2f7;
       --bg-soft: #ffffff;
       --card: #ffffff;
       --accent: #16a34a;
-      --accent-soft: rgba(22, 163, 74, 0.12);
-      --border-subtle: rgba(148, 163, 184, 0.65);
+      --accent-soft: rgba(22, 163, 74, 0.1);
+      --border-subtle: rgba(148, 163, 184, 0.7);
       --text-main: #111827;
       --text-muted: #4b5563;
-      --nav-bg: rgba(255, 255, 255, 0.96);
+      --nav-bg: rgba(255, 255, 255, 0.97);
     }
 
+    /* ===============================
+       GLOBAL STYLES
+       =============================== */
     * {
       margin: 0;
       padding: 0;
@@ -42,7 +51,7 @@
     }
 
     body {
-      background: radial-gradient(circle at top, #1e293b, #020617 55%);
+      background: radial-gradient(circle at top, #1f2937, var(--bg) 60%);
       color: var(--text-main);
       min-height: 100vh;
       display: flex;
@@ -57,10 +66,21 @@
     .page {
       width: 100%;
       max-width: 1040px;
-      padding-top: 3.5rem;
+      padding-top: 3.7rem;
     }
 
-    /* NAVBAR */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===============================
+       NAVBAR
+       =============================== */
     .navbar {
       position: fixed;
       top: 0;
@@ -68,8 +88,8 @@
       right: 0;
       z-index: 20;
       background: var(--nav-bg);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
     }
 
     .navbar-inner {
@@ -83,7 +103,7 @@
 
     .nav-title {
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.96rem;
     }
 
     .nav-links {
@@ -114,33 +134,37 @@
       cursor: pointer;
     }
 
-    /* MAIN LAYOUT */
+    /* ===============================
+       HERO SECTION
+       =============================== */
     .hero {
-      background: rgba(15, 23, 42, 0.9);
-      border-radius: 1.3rem;
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.16), transparent 55%),
+                  radial-gradient(circle at top right, rgba(59, 130, 246, 0.18), transparent 60%),
+                  var(--bg-soft);
+      border-radius: 1.4rem;
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
-      padding: 2.4rem 1.6rem 2.4rem;
-      margin-top: 1rem;
-      margin-bottom: 1.8rem;
+      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.9);
+      padding: 2.3rem 1.7rem 2.4rem;
+      margin-top: 1.1rem;
+      margin-bottom: 1.7rem;
       backdrop-filter: blur(12px);
       transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background 0.2s ease-out;
     }
 
     body.light .hero {
-      background: var(--bg-soft);
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+      background: linear-gradient(135deg, #ffffff, #e5f9f0);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.13);
     }
 
     .hero:hover {
       transform: translateY(-1px);
-      box-shadow: 0 26px 70px rgba(15, 23, 42, 0.85);
+      box-shadow: 0 26px 65px rgba(15, 23, 42, 0.8);
     }
 
     .pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.45rem;
       padding: 0.35rem 0.9rem;
       border-radius: 999px;
       background-color: var(--accent-soft);
@@ -154,7 +178,7 @@
     .hero-title {
       font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.3rem;
     }
 
     .hero-tagline {
@@ -182,7 +206,7 @@
 
     body.light .badge {
       background-color: #e5e7eb;
-      border-color: rgba(156, 163, 175, 0.8);
+      border-color: rgba(156, 163, 175, 0.85);
     }
 
     .hero-actions {
@@ -206,20 +230,20 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #22c55e, #a3e635);
+      background: radial-gradient(circle at top left, #bbf7d0, #22c55e);
       color: #022c22;
-      box-shadow: 0 12px 30px rgba(34,197,94,0.35);
+      box-shadow: 0 12px 30px rgba(34, 197, 94, 0.45);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(34,197,94,0.45);
+      box-shadow: 0 18px 44px rgba(34, 197, 94, 0.55);
     }
 
     .btn-outline {
       background: rgba(15, 23, 42, 0.9);
       color: var(--text-main);
-      border-color: rgba(148, 163, 184, 0.5);
+      border-color: rgba(148, 163, 184, 0.55);
     }
 
     .btn-outline:hover {
@@ -228,10 +252,12 @@
     }
 
     body.light .btn-outline {
-      background: var(--bg-soft);
+      background: #f9fafb;
     }
 
-    /* SECTIONS */
+    /* ===============================
+       GRID LAYOUT
+       =============================== */
     .sections {
       display: grid;
       grid-template-columns: 1fr;
@@ -245,16 +271,20 @@
     }
 
     .card {
-      background-color: var(--bg-soft);
+      background-color: var(--card);
       border-radius: 1rem;
       border: 1px solid var(--border-subtle);
       padding: 1.3rem 1.3rem 1.4rem;
     }
 
+    body.light .card {
+      background-color: var(--bg-soft);
+    }
+
     h2 {
       font-size: 1.08rem;
       margin-bottom: 0.7rem;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
       padding-bottom: 0.4rem;
     }
 
@@ -286,7 +316,12 @@
 
     body.light .chip {
       background-color: #e5e7eb;
-      border-color: rgba(107,114,128,0.9);
+      border-color: rgba(107, 114, 128, 0.9);
+    }
+
+    .label {
+      font-weight: 500;
+      color: var(--text-main);
     }
 
     .pub-title {
@@ -300,29 +335,30 @@
       margin-bottom: 0.4rem;
     }
 
-    .label {
-      font-weight: 500;
-      color: var(--text-main);
-    }
-
-    /* PROJECTS & GALLERY */
-    .projects, .gallery {
+    /* ===============================
+       PROJECTS & GALLERY
+       =============================== */
+    .projects {
       margin-top: 1.5rem;
     }
 
     .project-item {
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
     }
 
     .project-item strong {
       color: var(--text-main);
     }
 
+    .gallery {
+      margin-top: 1.5rem;
+    }
+
     .gallery-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 0.7rem;
-      margin-top: 0.6rem;
+      gap: 0.8rem;
+      margin-top: 0.7rem;
     }
 
     @media (min-width: 700px) {
@@ -353,15 +389,6 @@
       color: var(--text-muted);
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
     footer {
       margin-top: 2rem;
       font-size: 0.78rem;
@@ -384,7 +411,9 @@
 </head>
 
 <body>
-  <!-- NAVBAR -->
+  <!-- ===============================
+       NAVBAR
+       =============================== -->
   <header class="navbar">
     <div class="navbar-inner">
       <div class="nav-title">Pryrak Kumar</div>
@@ -401,13 +430,15 @@
   </header>
 
   <div class="page">
-    <!-- HERO -->
+    <!-- ===============================
+         HERO SECTION
+         =============================== -->
     <section class="hero" id="about">
       <div class="pill">Environmental Science • Research Portfolio</div>
       <h1 class="hero-title">Pryrak Kumar</h1>
       <p class="hero-tagline">
-        M.Sc. Environmental Science (IGNOU). Research interests in air pollution, PM<sub>2.5</sub>, 
-        environmental health, and R-based analysis of meteorological and air quality data.
+        M.Sc. Environmental Science (IGNOU). Research interests in air pollution, PM<sub>2.5</sub>,
+        environmental health, and R-based analysis of meteorological and air quality datasets.
       </p>
 
       <div class="badges">
@@ -417,28 +448,31 @@
       </div>
 
       <div class="hero-actions">
-        <!-- Replace this link with your real CV URL inside assets/ -->
+        <!-- IMPORTANT: replace this path with your actual CV file path -->
         <a class="btn btn-primary" href="assets/Pryrak_Kumar_CV.pdf" target="_blank">Download CV</a>
         <a class="btn btn-outline" href="mailto:pryrakkumar@gmail.com">Contact via Email</a>
       </div>
     </section>
 
-    <!-- MAIN SECTIONS GRID -->
+    <!-- ===============================
+         MAIN SECTIONS GRID
+         =============================== -->
     <section class="sections">
       <!-- LEFT COLUMN -->
       <div>
+        <!-- Research Interests -->
         <article class="card" id="research">
           <h2>Research Interests</h2>
           <p>
-            I am interested in how meteorological variables and human perception interact with urban air quality. 
-            My current work explores PM<sub>2.5</sub> exposure, public risk perception, and the role of 
-            temperature, rainfall, and solar radiation in shaping pollution levels.
+            I am interested in how meteorological variables and public perception interact with urban air
+            quality. My current work explores PM<sub>2.5</sub> exposure, risk perception, and the influence
+            of temperature, rainfall, and solar radiation on pollution levels using R.
           </p>
           <ul>
-            <li>Air pollution and PM<sub>2.5</sub> exposure</li>
+            <li>Air pollution and PM<sub>2.5</sub> exposure in urban environments</li>
             <li>Environmental and public health impacts of poor air quality</li>
-            <li>Urban air quality monitoring and perception studies</li>
-            <li>R-based statistical analysis and visualization</li>
+            <li>Urban air quality monitoring and perception-based studies</li>
+            <li>R-based statistical analysis and data visualization</li>
           </ul>
           <div class="chips">
             <span class="chip">Air Pollution</span>
@@ -451,42 +485,50 @@
           </div>
         </article>
 
+        <!-- R Analysis Projects -->
         <article class="card projects" id="projects">
           <h2>R Analysis Projects</h2>
+
           <div class="project-item">
             <strong>1. Correlation Analysis of PM2.5 and Meteorology</strong>
             <p>
-              Computed Pearson correlations between PM<sub>2.5</sub> and temperature, rainfall, and solar radiation 
-              to identify the strongest drivers of air quality in a sample dataset.
+              Computed Pearson correlation coefficients between PM<sub>2.5</sub> and temperature, rainfall,
+              and solar radiation to identify the strongest meteorological drivers of air quality.
             </p>
           </div>
+
           <div class="project-item">
             <strong>2. Simple & Multiple Regression Models</strong>
             <p>
-              Built linear regression models to predict PM<sub>2.5</sub> using single predictors and a combined model 
-              with temperature, rainfall, and solar radiation. Evaluated model fit using R², adjusted R², 
-              and significance tests (p-values, F-statistic).
+              Built linear regression models to predict PM<sub>2.5</sub> using single predictors and a
+              combined model with temperature, rainfall, and solar radiation. Evaluated model fit using
+              R², adjusted R², F-statistic and p-values.
             </p>
           </div>
+
           <div class="project-item">
             <strong>3. Time-Series Visualization</strong>
             <p>
-              Created time-series plots to visualize daily variations in PM<sub>2.5</sub> and meteorological variables, 
-              using ggplot2 with custom themes, labels, and date formatting.
+              Created time-series plots to visualize daily variations in PM<sub>2.5</sub> and meteorological
+              variables, using ggplot2 with custom themes, axis labels, and date formatting for clarity.
             </p>
           </div>
+
           <div class="project-item">
             <strong>4. Regression Diagnostics</strong>
             <p>
-              Performed diagnostic checks including Q-Q plots, residual vs fitted plots, Scale-Location plots, Shapiro-Wilk 
-              test, and Variance Inflation Factor (VIF) to validate model assumptions.
+              Performed diagnostic checks including Q-Q plots, residual vs fitted plots, Scale–Location plots,
+              Shapiro–Wilk normality tests, and Variance Inflation Factor (VIF) analysis to validate regression
+              assumptions.
             </p>
           </div>
+
           <div class="project-item">
-            <strong>5. Research Pipeline (Work in Progress)</strong>
+            <strong>5. Research Pipeline (In Progress)</strong>
             <p>
-              Developing a reusable R script to automate: data import, cleaning, merging meteorological and PM<sub>2.5</sub> 
-              datasets, generating plots, computing correlations, and running regression models for longer time periods.
+              Developing a reusable R script to automate: importing multi-year data, cleaning and merging
+              PM<sub>2.5</sub> with meteorological datasets, generating plots, computing correlations, and
+              fitting regression models for longer time periods.
             </p>
           </div>
         </article>
@@ -494,71 +536,93 @@
 
       <!-- RIGHT COLUMN -->
       <div>
+        <!-- Profile & Links (no GitHub as requested) -->
         <aside class="card">
           <h2>Profile & Links</h2>
           <p><span class="label">Degree:</span> M.Sc. Environmental Science</p>
           <p><span class="label">Institution:</span> Indira Gandhi National Open University (IGNOU)</p>
-          <p><span class="label">ORCID:</span> 
-            <a href="https://orcid.org/0009-0009-4979-2516" target="_blank">0009-0009-4979-2516</a>
+          <p>
+            <span class="label">ORCID:</span>
+            <a href="https://orcid.org/0009-0009-4979-2516" target="_blank">
+              0009-0009-4979-2516
+            </a>
           </p>
-          <p><span class="label">GitHub:</span> 
-            <a href="https://github.com/Pryrakkumar" target="_blank">github.com/Pryrakkumar</a>
-          </p>
-          <p><span class="label">LinkedIn:</span> 
+          <p>
+            <span class="label">LinkedIn:</span>
             <a href="https://www.linkedin.com/in/pryrak-kumar-b937963b1" target="_blank">
               linkedin.com/in/pryrak-kumar-b937963b1
             </a>
           </p>
-          <p><span class="label">Email:</span> 
+          <p>
+            <span class="label">Email:</span>
             <a href="mailto:pryrakkumar@gmail.com">pryrakkumar@gmail.com</a>
           </p>
         </aside>
 
+        <!-- Publication -->
         <aside class="card" id="publications">
           <h2>Publication</h2>
           <p class="pub-title">
             Public Perception of Air Pollution Exposure and Health Impacts in Central Delhi
           </p>
           <p class="pub-meta">
-            Kumar, P., &amp; Abhishek, A. (2026). 
-            <em>Journal of Emerging Technologies and Innovative Research</em>, 13(2).<br>
-            DOI: <a href="https://doi.org/10.56975/jetir.v13i2.575762" target="_blank">
+            Kumar, P., &amp; Abhishek, A. (2026),
+            <em>Journal of Emerging Technologies and Innovative Research</em>, 13(2).<br />
+            DOI:
+            <a href="https://doi.org/10.56975/jetir.v13i2.575762" target="_blank">
               10.56975/jetir.v13i2.575762
             </a>
           </p>
           <p>
-            This study investigates how residents in Central Delhi perceive air pollution and its health 
-            impacts, and compares these perceptions with measured PM<sub>2.5</sub> levels. Findings highlight 
-            gaps between perceived and actual risk, underlining the importance of effective communication 
-            and policy interventions.
+            This study investigates how residents in Central Delhi perceive air pollution and its health
+            impacts, and compares these perceptions with measured PM<sub>2.5</sub> levels. The findings
+            highlight gaps between perceived and actual risk, emphasizing the importance of effective
+            communication and evidence-based policy.
           </p>
         </aside>
 
+        <!-- Contact -->
         <aside class="card" id="contact">
           <h2>Contact</h2>
-          <p>If you are interested in research collaboration, internships, or academic opportunities:</p>
+          <p>If you are interested in research collaboration, internships or academic opportunities:</p>
           <p>Email: <a href="mailto:pryrakkumar@gmail.com">pryrakkumar@gmail.com</a></p>
-          <p>LinkedIn: <a href="https://www.linkedin.com/in/pryrak-kumar-b937963b1" target="_blank">Connect with me</a></p>
+          <p>
+            LinkedIn:
+            <a href="https://www.linkedin.com/in/pryrak-kumar-b937963b1" target="_blank">
+              Connect with me
+            </a>
+          </p>
         </aside>
       </div>
     </section>
 
-    <!-- GALLERY -->
-    <section class="card gallery" id="gallery" style="margin-top: 1.5rem;">
+    <!-- ===============================
+         R PLOT GALLERY
+         =============================== -->
+    <section class="card gallery" id="gallery">
       <h2>R Plot Gallery</h2>
-      <p>Some example visualizations created in R using ggplot2 (replace image files with your own plots).</p>
+      <p>
+        Example visualizations created in R using ggplot2. Export your plots as PNG files and place them
+        in a <code>plots/</code> folder in this repository, then update the file names below if needed.
+      </p>
+
       <div class="gallery-grid">
         <div class="gallery-card">
-          <img src="plots/pm25_vs_temp.png" alt="Scatter plot of PM2.5 vs Temperature">
+          <!-- Replace with your real plot file exported from R -->
+          <img src="plots/pm25_vs_temperature.png" alt="Scatter plot of PM2.5 vs Temperature">
           <div>PM<sub>2.5</sub> vs Temperature (scatter + regression line)</div>
         </div>
+
         <div class="gallery-card">
+          <!-- Replace with your real plot file -->
           <img src="plots/pm25_vs_solar.png" alt="Scatter plot of PM2.5 vs Solar Radiation">
-          <div>PM<sub>2.5</sub> vs Solar Radiation with strong positive trend</div>
+          <div>PM<sub>2.5</sub> vs Solar Radiation showing strong positive association</div>
         </div>
+
         <div class="gallery-card">
+          <!-- Replace with your real plot file -->
           <img src="plots/time_series_pm25.png" alt="Time-series plot of PM2.5">
-          <div>Daily PM<sub>2.5</sub> levels over time (time-series)</div>
+          <div>Daily PM<sub>2.5</sub> levels over time (time-series visualization)</div>
         </div>
       </div>
     </section>
@@ -568,25 +632,27 @@
     </footer>
   </div>
 
+  <!-- ===============================
+       THEME TOGGLE SCRIPT
+       =============================== -->
   <script>
-    // Dark / light mode toggle
-    const toggleBtn = document.getElementById('themeToggle');
+    const toggleBtn = document.getElementById("themeToggle");
     const body = document.body;
 
     function updateThemeText() {
-      if (body.classList.contains('light')) {
-        toggleBtn.textContent = '☀️ Light';
+      if (body.classList.contains("light")) {
+        toggleBtn.textContent = "☀️ Light";
       } else {
-        toggleBtn.textContent = '🌙 Dark';
+        toggleBtn.textContent = "🌙 Dark";
       }
     }
 
-    toggleBtn.addEventListener('click', () => {
-      body.classList.toggle('light');
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("light");
       updateThemeText();
     });
 
-    // Set initial theme text
+    // Initial label
     updateThemeText();
   </script>
 </body>
