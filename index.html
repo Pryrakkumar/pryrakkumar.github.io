@@ -2,205 +2,592 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pryrak Kumar | Environmental Science Research Portfolio</title>
+  <title>Pryrak Kumar | Environmental Science Research</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
   <!-- SEO -->
-  <meta name="description" content="Portfolio of Pryrak Kumar, M.Sc. Environmental Science student specializing in air pollution, PM2.5 analysis, environmental health, and R-based data science.">
-  <meta name="keywords" content="Pryrak Kumar, environmental science, air pollution, PM2.5, Delhi, R programming, regression analysis, MSc Environmental Science, IGNOU">
+  <meta name="description" content="Portfolio of Pryrak Kumar, M.Sc. Environmental Science student specializing in air pollution, PM2.5 analysis, environmental health, and R-based environmental data science.">
+  <meta name="keywords" content="Pryrak Kumar, environmental science, air pollution, PM2.5, Delhi, R programming, regression, time-series, MSc Environmental Science, IGNOU">
   
   <style>
     :root {
       --bg: #0f172a;
+      --bg-soft: #020617;
       --card: #111827;
       --accent: #22c55e;
-      --accent-soft: rgba(34, 197, 94, 0.12);
+      --accent-soft: rgba(34, 197, 94, 0.16);
+      --border-subtle: rgba(148, 163, 184, 0.35);
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
+      --nav-bg: rgba(15, 23, 42, 0.92);
     }
+
+    body.light {
+      --bg: #f4f6f7;
+      --bg-soft: #ffffff;
+      --card: #ffffff;
+      --accent: #16a34a;
+      --accent-soft: rgba(22, 163, 74, 0.12);
+      --border-subtle: rgba(148, 163, 184, 0.65);
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --nav-bg: rgba(255, 255, 255, 0.96);
+    }
+
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
+
     body {
       background: radial-gradient(circle at top, #1e293b, #020617 55%);
       color: var(--text-main);
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      padding: 2rem 1rem;
+      padding: 0 1rem 2.5rem;
     }
-    .container {
-      width: 100%; max-width: 960px;
-      background: rgba(15, 23, 42, 0.9);
-      border-radius: 1.4rem;
-      border: 1px solid rgba(148,163,184,0.25);
-      box-shadow: 0 24px 60px rgba(15,23,42,0.9);
-      padding: 2.2rem 1.6rem 3rem;
+
+    body.light {
+      background: var(--bg);
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1040px;
+      padding-top: 3.5rem;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      background: var(--nav-bg);
       backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
     }
-    h1 {
-      font-size: 2rem; margin-bottom: 0.3rem;
+
+    .navbar-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1rem;
     }
-    .pill {
-      display: inline-block;
-      background: var(--accent-soft);
-      color: var(--accent);
-      padding: 0.35rem 0.9rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      margin-bottom: 1rem;
+
+    .nav-title {
+      font-weight: 600;
+      font-size: 0.95rem;
     }
-    .subtitle {
+
+    .nav-links {
+      display: flex;
+      gap: 0.8rem;
+      font-size: 0.84rem;
+    }
+
+    .nav-links a {
       color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-    .actions a {
-      display: inline-flex;
-      padding: 0.55rem 1.1rem;
-      margin-right: 0.5rem;
-      border-radius: 999px;
-      font-size: 0.85rem;
       text-decoration: none;
-      border: 1px solid transparent;
+      padding: 0.25rem 0.4rem;
+      border-radius: 999px;
     }
-    .btn-primary {
-      background: linear-gradient(135deg, #22c55e, #a3e635);
-      color: #042f1a;
-      box-shadow: 0 12px 30px rgba(34,197,94,0.35);
+
+    .nav-links a:hover {
+      color: var(--accent);
+      background: rgba(34, 197, 94, 0.08);
     }
-    .btn-outline {
-      background: rgba(15,23,42,0.7);
-      border: 1px solid rgba(148,163,184,0.25);
+
+    .toggle-btn {
+      border: 1px solid var(--border-subtle);
+      background: transparent;
       color: var(--text-main);
-    }
-    .section {
-      margin-top: 2rem;
-      padding: 1.2rem;
-      background: var(--card);
-      border-radius: 1rem;
-      border: 1px solid rgba(148,163,184,0.35);
-    }
-    h2 {
-      margin-bottom: 0.8rem;
-      font-size: 1.2rem;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding-bottom: 0.4rem;
-    }
-    ul { margin-left: 1.2rem; }
-    .chip {
-      display: inline-block;
-      margin: 4px;
-      background: #020617;
-      border: 1px solid rgba(55,65,81,0.9);
-      color: var(--text-muted);
+      font-size: 0.8rem;
       padding: 0.25rem 0.7rem;
       border-radius: 999px;
-      font-size: 0.75rem;
+      cursor: pointer;
     }
+
+    /* MAIN LAYOUT */
+    .hero {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 1.3rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+      padding: 2.4rem 1.6rem 2.4rem;
+      margin-top: 1rem;
+      margin-bottom: 1.8rem;
+      backdrop-filter: blur(12px);
+      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background 0.2s ease-out;
+    }
+
+    body.light .hero {
+      background: var(--bg-soft);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    .hero:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 26px 70px rgba(15, 23, 42, 0.85);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      background-color: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-tagline {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin-bottom: 1.1rem;
+      max-width: 36rem;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background-color: #020617;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--text-muted);
+    }
+
+    body.light .badge {
+      background-color: #e5e7eb;
+      border-color: rgba(156, 163, 175, 0.8);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.15rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.18s ease-out;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #a3e635);
+      color: #022c22;
+      box-shadow: 0 12px 30px rgba(34,197,94,0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(34,197,94,0.45);
+    }
+
+    .btn-outline {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      border-color: rgba(148, 163, 184, 0.5);
+    }
+
+    .btn-outline:hover {
+      background: #020617;
+      border-color: var(--accent);
+    }
+
+    body.light .btn-outline {
+      background: var(--bg-soft);
+    }
+
+    /* SECTIONS */
+    .sections {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.4rem;
+    }
+
+    @media (min-width: 900px) {
+      .sections {
+        grid-template-columns: 1.2fr 0.9fr;
+      }
+    }
+
+    .card {
+      background-color: var(--bg-soft);
+      border-radius: 1rem;
+      border: 1px solid var(--border-subtle);
+      padding: 1.3rem 1.3rem 1.4rem;
+    }
+
+    h2 {
+      font-size: 1.08rem;
+      margin-bottom: 0.7rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+      padding-bottom: 0.4rem;
+    }
+
+    p, li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 1.1rem;
+      margin-top: 0.2rem;
+    }
+
+    .chips {
+      margin-top: 0.6rem;
+    }
+
+    .chip {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background-color: #020617;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-muted);
+      margin: 2px 4px 2px 0;
+    }
+
+    body.light .chip {
+      background-color: #e5e7eb;
+      border-color: rgba(107,114,128,0.9);
+    }
+
+    .pub-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .pub-meta {
+      font-size: 0.82rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .label {
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    /* PROJECTS & GALLERY */
+    .projects, .gallery {
+      margin-top: 1.5rem;
+    }
+
+    .project-item {
+      margin-bottom: 0.75rem;
+    }
+
+    .project-item strong {
+      color: var(--text-main);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.7rem;
+      margin-top: 0.6rem;
+    }
+
+    @media (min-width: 700px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .gallery-card {
+      border-radius: 0.75rem;
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      background: #020617;
+      font-size: 0.8rem;
+    }
+
+    body.light .gallery-card {
+      background: #f9fafb;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      display: block;
+    }
+
+    .gallery-card div {
+      padding: 0.4rem 0.55rem 0.6rem;
+      color: var(--text-muted);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     footer {
       margin-top: 2rem;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
       text-align: right;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 1.8rem 1.3rem 2.1rem;
+      }
+      .navbar-inner {
+        padding-inline: 0.75rem;
+      }
+      .nav-links {
+        display: none;
+      }
     }
   </style>
 </head>
 
 <body>
-  <main class="container">
-
-    <!-- Header -->
-    <div>
-      <div class="pill">Environmental Science • Research Portfolio</div>
-      <h1>Pryrak Kumar</h1>
-      <div class="subtitle">
-        M.Sc. Environmental Science (IGNOU) • Air Pollution • PM2.5 Analysis • Environmental Data Science (R)
-      </div>
-
-      <div class="actions">
-        <a class="btn-primary" href="YOUR_CV_LINK.pdf" target="_blank">Download CV</a>
-        <a class="btn-outline" href="mailto:pryrakkumar@gmail.com">Email me</a>
-      </div>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div class="nav-title">Pryrak Kumar</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">R Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="toggle-btn" id="themeToggle">🌙 Dark</button>
     </div>
+  </header>
 
-    <!-- About -->
-    <section class="section">
-      <h2>About Me</h2>
-      <p>
-        I am a postgraduate Environmental Science student specializing in air pollution analysis, PM2.5 monitoring, environmental health, and data-driven research. I use R programming for correlation, regression, time-series analysis, and visualization of environmental datasets.
+  <div class="page">
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div class="pill">Environmental Science • Research Portfolio</div>
+      <h1 class="hero-title">Pryrak Kumar</h1>
+      <p class="hero-tagline">
+        M.Sc. Environmental Science (IGNOU). Research interests in air pollution, PM<sub>2.5</sub>, 
+        environmental health, and R-based analysis of meteorological and air quality data.
       </p>
-      <p style="margin-top: 0.6rem;">
-        ORCID: <a href="https://orcid.org/0009-0009-4979-2516" target="_blank">0009-0009-4979-2516</a><br>
-        GitHub: <a href="https://github.com/Pryrakkumar" target="_blank">github.com/Pryrakkumar</a><br>
-        LinkedIn: <a href="https://www.linkedin.com/in/pryrak-kumar-b937963b1" target="_blank">View Profile</a>
-      </p>
-    </section>
 
-    <!-- Research Interests -->
-    <section class="section">
-      <h2>Research Interests</h2>
-      <ul>
-        <li>Air pollution & PM2.5 monitoring</li>
-        <li>Environmental health & risk perception</li>
-        <li>Meteorological factors (Temperature, Rainfall, Solar radiation)</li>
-        <li>Data analysis & visualization using R</li>
-      </ul>
-      <div style="margin-top: 0.8rem;">
-        <span class="chip">Air Pollution</span>
-        <span class="chip">PM2.5</span>
-        <span class="chip">Environmental Health</span>
-        <span class="chip">R Programming</span>
-        <span class="chip">Regression Analysis</span>
-        <span class="chip">Time-Series</span>
-        <span class="chip">ggplot2</span>
+      <div class="badges">
+        <span class="badge">Air Pollution &amp; PM<sub>2.5</sub></span>
+        <span class="badge">R • ggplot2 • Regression</span>
+        <span class="badge">Delhi Region Studies</span>
+      </div>
+
+      <div class="hero-actions">
+        <!-- Replace this link with your real CV URL inside assets/ -->
+        <a class="btn btn-primary" href="assets/Pryrak_Kumar_CV.pdf" target="_blank">Download CV</a>
+        <a class="btn btn-outline" href="mailto:pryrakkumar@gmail.com">Contact via Email</a>
       </div>
     </section>
 
-    <!-- Publication -->
-    <section class="section">
-      <h2>Publication</h2>
-      <p><strong>Public Perception of Air Pollution Exposure and Health Impacts in Central Delhi</strong></p>
-      <p>Journal of Emerging Technologies and Innovative Research (2026)</p>
-      <p>DOI: <a href="https://doi.org/10.56975/jetir.v13i2.575762" target="_blank">10.56975/jetir.v13i2.575762</a></p>
-      <p>
-        The study evaluates public awareness of PM2.5, perceived health risks, and behavioral responses in Delhi. It combines survey data with environmental indicators to highlight gaps between real and perceived pollution.
-      </p>
+    <!-- MAIN SECTIONS GRID -->
+    <section class="sections">
+      <!-- LEFT COLUMN -->
+      <div>
+        <article class="card" id="research">
+          <h2>Research Interests</h2>
+          <p>
+            I am interested in how meteorological variables and human perception interact with urban air quality. 
+            My current work explores PM<sub>2.5</sub> exposure, public risk perception, and the role of 
+            temperature, rainfall, and solar radiation in shaping pollution levels.
+          </p>
+          <ul>
+            <li>Air pollution and PM<sub>2.5</sub> exposure</li>
+            <li>Environmental and public health impacts of poor air quality</li>
+            <li>Urban air quality monitoring and perception studies</li>
+            <li>R-based statistical analysis and visualization</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Air Pollution</span>
+            <span class="chip">PM2.5</span>
+            <span class="chip">Environmental Health</span>
+            <span class="chip">R Programming</span>
+            <span class="chip">Regression</span>
+            <span class="chip">Time-Series</span>
+            <span class="chip">ggplot2</span>
+          </div>
+        </article>
+
+        <article class="card projects" id="projects">
+          <h2>R Analysis Projects</h2>
+          <div class="project-item">
+            <strong>1. Correlation Analysis of PM2.5 and Meteorology</strong>
+            <p>
+              Computed Pearson correlations between PM<sub>2.5</sub> and temperature, rainfall, and solar radiation 
+              to identify the strongest drivers of air quality in a sample dataset.
+            </p>
+          </div>
+          <div class="project-item">
+            <strong>2. Simple & Multiple Regression Models</strong>
+            <p>
+              Built linear regression models to predict PM<sub>2.5</sub> using single predictors and a combined model 
+              with temperature, rainfall, and solar radiation. Evaluated model fit using R², adjusted R², 
+              and significance tests (p-values, F-statistic).
+            </p>
+          </div>
+          <div class="project-item">
+            <strong>3. Time-Series Visualization</strong>
+            <p>
+              Created time-series plots to visualize daily variations in PM<sub>2.5</sub> and meteorological variables, 
+              using ggplot2 with custom themes, labels, and date formatting.
+            </p>
+          </div>
+          <div class="project-item">
+            <strong>4. Regression Diagnostics</strong>
+            <p>
+              Performed diagnostic checks including Q-Q plots, residual vs fitted plots, Scale-Location plots, Shapiro-Wilk 
+              test, and Variance Inflation Factor (VIF) to validate model assumptions.
+            </p>
+          </div>
+          <div class="project-item">
+            <strong>5. Research Pipeline (Work in Progress)</strong>
+            <p>
+              Developing a reusable R script to automate: data import, cleaning, merging meteorological and PM<sub>2.5</sub> 
+              datasets, generating plots, computing correlations, and running regression models for longer time periods.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div>
+        <aside class="card">
+          <h2>Profile & Links</h2>
+          <p><span class="label">Degree:</span> M.Sc. Environmental Science</p>
+          <p><span class="label">Institution:</span> Indira Gandhi National Open University (IGNOU)</p>
+          <p><span class="label">ORCID:</span> 
+            <a href="https://orcid.org/0009-0009-4979-2516" target="_blank">0009-0009-4979-2516</a>
+          </p>
+          <p><span class="label">GitHub:</span> 
+            <a href="https://github.com/Pryrakkumar" target="_blank">github.com/Pryrakkumar</a>
+          </p>
+          <p><span class="label">LinkedIn:</span> 
+            <a href="https://www.linkedin.com/in/pryrak-kumar-b937963b1" target="_blank">
+              linkedin.com/in/pryrak-kumar-b937963b1
+            </a>
+          </p>
+          <p><span class="label">Email:</span> 
+            <a href="mailto:pryrakkumar@gmail.com">pryrakkumar@gmail.com</a>
+          </p>
+        </aside>
+
+        <aside class="card" id="publications">
+          <h2>Publication</h2>
+          <p class="pub-title">
+            Public Perception of Air Pollution Exposure and Health Impacts in Central Delhi
+          </p>
+          <p class="pub-meta">
+            Kumar, P., &amp; Abhishek, A. (2026). 
+            <em>Journal of Emerging Technologies and Innovative Research</em>, 13(2).<br>
+            DOI: <a href="https://doi.org/10.56975/jetir.v13i2.575762" target="_blank">
+              10.56975/jetir.v13i2.575762
+            </a>
+          </p>
+          <p>
+            This study investigates how residents in Central Delhi perceive air pollution and its health 
+            impacts, and compares these perceptions with measured PM<sub>2.5</sub> levels. Findings highlight 
+            gaps between perceived and actual risk, underlining the importance of effective communication 
+            and policy interventions.
+          </p>
+        </aside>
+
+        <aside class="card" id="contact">
+          <h2>Contact</h2>
+          <p>If you are interested in research collaboration, internships, or academic opportunities:</p>
+          <p>Email: <a href="mailto:pryrakkumar@gmail.com">pryrakkumar@gmail.com</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/pryrak-kumar-b937963b1" target="_blank">Connect with me</a></p>
+        </aside>
+      </div>
     </section>
 
-    <!-- R Analysis Projects -->
-    <section class="section">
-      <h2>R Analysis Portfolio</h2>
-      <p><strong>Environmental Data Science Work (2024–2026)</strong></p>
-      <ul>
-        <li><strong>Correlation Analysis:</strong> PM2.5 vs Temperature, Rainfall, Solar Radiation</li>
-        <li><strong>Simple & Multiple Regression:</strong> Air quality predictions using meteorological variables</li>
-        <li><strong>Time-Series Plots:</strong> PM2.5 variation and weather trends</li>
-        <li><strong>Regression Diagnostics:</strong> Q-Q plots · Residuals · VIF · Shapiro-Wilk test</li>
-        <li><strong>Automated Research Pipeline:</strong> Import → Clean → Merge → Analyze → Plot</li>
-      </ul>
-
-      <p style="margin-top: 0.8rem;">
-        <strong>Tools & Packages:</strong> ggplot2, dplyr, tidyr, lubridate, stats
-      </p>
-    </section>
-
-    <!-- Education -->
-    <section class="section">
-      <h2>Education</h2>
-      <p><strong>M.Sc. Environmental Science</strong><br>Indira Gandhi National Open University (IGNOU)</p>
-    </section>
-
-    <!-- Contact -->
-    <section class="section">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:pryrakkumar@gmail.com">pryrakkumar@gmail.com</a></p>
+    <!-- GALLERY -->
+    <section class="card gallery" id="gallery" style="margin-top: 1.5rem;">
+      <h2>R Plot Gallery</h2>
+      <p>Some example visualizations created in R using ggplot2 (replace image files with your own plots).</p>
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="plots/pm25_vs_temp.png" alt="Scatter plot of PM2.5 vs Temperature">
+          <div>PM<sub>2.5</sub> vs Temperature (scatter + regression line)</div>
+        </div>
+        <div class="gallery-card">
+          <img src="plots/pm25_vs_solar.png" alt="Scatter plot of PM2.5 vs Solar Radiation">
+          <div>PM<sub>2.5</sub> vs Solar Radiation with strong positive trend</div>
+        </div>
+        <div class="gallery-card">
+          <img src="plots/time_series_pm25.png" alt="Time-series plot of PM2.5">
+          <div>Daily PM<sub>2.5</sub> levels over time (time-series)</div>
+        </div>
+      </div>
     </section>
 
     <footer>
       Last updated: 2026 · Built with GitHub Pages
     </footer>
+  </div>
 
-  </main>
+  <script>
+    // Dark / light mode toggle
+    const toggleBtn = document.getElementById('themeToggle');
+    const body = document.body;
+
+    function updateThemeText() {
+      if (body.classList.contains('light')) {
+        toggleBtn.textContent = '☀️ Light';
+      } else {
+        toggleBtn.textContent = '🌙 Dark';
+      }
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('light');
+      updateThemeText();
+    });
+
+    // Set initial theme text
+    updateThemeText();
+  </script>
 </body>
 </html>
