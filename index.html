@@ -1,82 +1,359 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Pryrak Kumar | Environmental Science Researcher</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            line-height: 1.6;
-            background-color: #f4f6f7;
-            color: #2c3e50;
-        }
-        h1 {
-            color: #1b4f72;
-        }
-        h2 {
-            border-bottom: 2px solid #1b4f72;
-            padding-bottom: 5px;
-        }
-        a {
-            color: #154360;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .section {
-            margin-bottom: 30px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Pryrak Kumar | Environmental Science Research</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- SEO -->
+  <meta name="description"
+        content="Portfolio of Pryrak Kumar, M.Sc. Environmental Science. Research on air pollution, public perception, and climate-related environmental issues." />
+  <meta name="keywords"
+        content="Pryrak Kumar, environmental science, air pollution, PM2.5, Delhi, climate change, public perception, MSc research, R programming" />
+
+  <!-- Simple styling -->
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1e293b, #020617 55%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 1.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+      padding: 2.2rem 1.6rem 2.6rem;
+      backdrop-filter: blur(12px);
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding: 2.8rem 2.4rem 3rem;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        align-items: center;
+      }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      background-color: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.9rem;
+    }
+
+    .title {
+      font-size: 1.9rem;
+      line-height: 1.15;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin-bottom: 1.1rem;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background-color: #020617;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--text-muted);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.18s ease-out;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #a3e635);
+      color: #022c22;
+      box-shadow: 0 12px 30px rgba(34, 197, 94, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(34, 197, 94, 0.45);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      border-color: rgba(148, 163, 184, 0.4);
+    }
+
+    .btn-ghost:hover {
+      background: #020617;
+      border-color: var(--accent);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.7rem;
+      margin-top: 2.1rem;
+    }
+
+    @media (min-width: 900px) {
+      .section-grid {
+        grid-template-columns: 1.2fr 0.9fr;
+      }
+    }
+
+    .card {
+      background-color: var(--card);
+      border-radius: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 1.4rem 1.3rem 1.5rem;
+    }
+
+    .card h2 {
+      font-size: 1.02rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .list {
+      list-style: none;
+      margin-top: 0.4rem;
+    }
+
+    .list li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0.25rem 0;
+    }
+
+    .list li span.label {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .pub-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .pub-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background-color: #020617;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-muted);
+    }
+
+    footer {
+      margin-top: 2.2rem;
+      font-size: 0.78rem;
+      color: #6b7280;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.7rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
+  <main class="container">
+    <section class="header">
+      <div>
+        <div class="pill">Environmental Science • Research Portfolio</div>
+        <h1 class="title">Pryrak Kumar</h1>
+        <p class="subtitle">
+          M.Sc. Environmental Science student with a focus on air pollution,
+          meteorology, and public health risk perception. Experienced in R
+          programming for statistical analysis, time-series, and visualization.
+        </p>
 
-<h1>Pryrak Kumar</h1>
-<p><strong>Environmental Science Researcher</strong></p>
-<p>ORCID: <a href="https://orcid.org/0009-0009-4979-2516" target="_blank">0009-0009-4979-2516</a></p>
+        <div class="badges">
+          <span class="badge">Air Pollution &amp; PM<sub>2.5</sub></span>
+          <span class="badge">R • ggplot2 • Regression</span>
+          <span class="badge">Delhi Region Studies</span>
+        </div>
 
-<div class="section">
-    <h2>About Me</h2>
-    <p>
-        I am a postgraduate student in Environmental Science with research interests in 
-        air pollution, public health impacts, and environmental data analysis.
-        My work focuses on understanding urban air quality and its societal implications.
-    </p>
-</div>
+        <div class="actions">
+          <!-- TODO: replace # with your real links -->
+          <a class="btn btn-primary" href="#" target="_blank">
+            Download CV (PDF)
+          </a>
+          <a class="btn btn-ghost" href="mailto:your_email@example.com">
+            Contact by Email
+          </a>
+        </div>
+      </div>
+    </section>
 
-<div class="section">
-    <h2>Research Interests</h2>
-    <ul>
-        <li>Air Pollution and PM2.5 Analysis</li>
-        <li>Environmental Health</li>
-        <li>Urban Air Quality Monitoring</li>
-        <li>Statistical Analysis using R</li>
-    </ul>
-</div>
+    <section class="section-grid">
+      <!-- Left column -->
+      <article class="card">
+        <h2>Research Interests</h2>
+        <p>
+          I am interested in how meteorological factors and human perception
+          interact with air quality in Indian urban environments. My current
+          work combines survey data with environmental measurements and
+          statistical modelling in R.
+        </p>
 
-<div class="section">
-    <h2>Publications</h2>
-    <p>
-        <strong>Public Perception of Air Pollution Exposure and Health Impacts in Central Delhi</strong><br>
-        Journal of Emerging Technologies and Innovative Research (2026)<br>
-        DOI: <a href="https://doi.org/10.56975/jetir.v13i2.575762" target="_blank">10.56975/jetir.v13i2.575762</a>
-    </p>
-</div>
+        <ul class="list">
+          <li>• Urban air pollution and PM<sub>2.5</sub> exposure</li>
+          <li>• Public perception of air quality and health risk</li>
+          <li>• Meteorology (temperature, rainfall, solar radiation)</li>
+          <li>• Climate change awareness and communication</li>
+          <li>• R-based data analysis and visualization</li>
+        </ul>
+      </article>
 
-<div class="section">
-    <h2>Education</h2>
-    <p>
-        M.Sc. in Environmental Science<br>
-        Indira Gandhi National Open University (IGNOU)
-    </p>
-</div>
+      <!-- Right column -->
+      <aside class="card">
+        <h2>Quick Facts</h2>
+        <ul class="list">
+          <li><span class="label">Degree:</span> M.Sc. Environmental Science</li>
+          <li><span class="label">Tools:</span> R, RStudio, ggplot2, Excel</li>
+          <li><span class="label">Methods:</span> Correlation, regression, time-series, surveys</li>
+          <li><span class="label">Location:</span> India</li>
+        </ul>
 
-<div class="section">
-    <h2>Contact</h2>
-    <p>Email: pryrakkumar@gmail.com</p>
-</div>
+        <div class="chips">
+          <span class="chip">R programming</span>
+          <span class="chip">Data visualization</span>
+          <span class="chip">Environmental statistics</span>
+          <span class="chip">Questionnaire design</span>
+        </div>
+      </aside>
+    </section>
 
+    <section class="section-grid" style="margin-top: 1.7rem;">
+      <article class="card">
+        <h2>Publication</h2>
+
+        <p class="pub-title">
+          Public Perception of Air Pollution Exposure and Health Impacts in Central Delhi
+        </p>
+        <p class="pub-meta">
+          P. Kumar &amp; A. Abhishek, <em>Journal of Emerging Technologies and Innovative
+          Research</em>, 13(2), 2026.
+        </p>
+        <p class="pub-meta">
+          DOI: <a href="https://doi.org/10.56975/jetir.v13i2.575762" target="_blank">
+          10.56975/jetir.v13i2.575762</a>
+        </p>
+
+        <p>
+          This study explores how residents in Central Delhi perceive air
+          pollution, their awareness of PM<sub>2.5</sub>-related health
+          impacts, and their willingness to adopt protective behaviours. The
+          work combines survey data with environmental information to highlight
+          gaps between measured pollution levels and public perception.
+        </p>
+      </article>
+
+      <aside class="card">
+        <h2>Links</h2>
+        <ul class="list">
+          <!-- Replace # with your actual URLs -->
+          <li><span class="label">ORCID:</span> <a href="#" target="_blank">View profile</a></li>
+          <li><span class="label">GitHub:</span> <a href="https://github.com/Pryrakkumar" target="_blank">github.com/Pryrakkumar</a></li>
+          <li><span class="label">LinkedIn:</span> <a href="#" target="_blank">View LinkedIn</a></li>
+          <li><span class="label">Email:</span> <a href="mailto:your_email@example.com">your_email@example.com</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <footer>
+      <span>Last updated: 2026</span>
+      <span>Built with ♥ using GitHub Pages.</span>
+    </footer>
+  </main>
 </body>
 </html>
+
