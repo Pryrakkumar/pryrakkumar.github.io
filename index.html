@@ -16,9 +16,10 @@
        THEME VARIABLES
        =============================== */
     :root {
-      --bg: #0b1220;            /* slightly softer dark */
-      --bg-soft: #0f172a;       /* card background */
-      --card: #111827;
+      /* dark mode defaults */
+      --bg: #020617;            /* overall background (dark blue) */
+      --bg-soft: #0b1220;       /* soft panel background */
+      --card: #0f172a;          /* card background */
       --accent: #22c55e;
       --accent-soft: rgba(34, 197, 94, 0.16);
       --border-subtle: rgba(148, 163, 184, 0.4);
@@ -27,17 +28,17 @@
       --nav-bg: rgba(15, 23, 42, 0.94);
     }
 
-    /* Light mode variables */
+    /* Light mode (light blue vibe) */
     body.light {
-      --bg: #edf2f7;
-      --bg-soft: #ffffff;
+      --bg: #dbeafe;            /* blue-100 */
+      --bg-soft: #eff6ff;       /* blue-50 */
       --card: #ffffff;
       --accent: #16a34a;
       --accent-soft: rgba(22, 163, 74, 0.1);
       --border-subtle: rgba(148, 163, 184, 0.7);
-      --text-main: #111827;
-      --text-muted: #4b5563;
-      --nav-bg: rgba(255, 255, 255, 0.97);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --nav-bg: rgba(239, 246, 255, 0.97);
     }
 
     /* ===============================
@@ -51,7 +52,10 @@
     }
 
     body {
-      background: radial-gradient(circle at top, #1f2937, var(--bg) 60%);
+      background:
+        radial-gradient(circle at top, #1d4ed8 0, transparent 55%),
+        radial-gradient(circle at bottom, #0f172a 0, transparent 60%),
+        var(--bg);
       color: var(--text-main);
       min-height: 100vh;
       display: flex;
@@ -60,7 +64,10 @@
     }
 
     body.light {
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top, #bfdbfe 0, transparent 55%),
+        radial-gradient(circle at bottom, #93c5fd 0, transparent 60%),
+        var(--bg);
     }
 
     .page {
@@ -138,9 +145,10 @@
        HERO SECTION
        =============================== */
     .hero {
-      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.16), transparent 55%),
-                  radial-gradient(circle at top right, rgba(59, 130, 246, 0.18), transparent 60%),
-                  var(--bg-soft);
+      background:
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.16), transparent 55%),
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.18), transparent 60%),
+        var(--bg-soft);
       border-radius: 1.4rem;
       border: 1px solid var(--border-subtle);
       box-shadow: 0 22px 50px rgba(15, 23, 42, 0.9);
@@ -152,7 +160,9 @@
     }
 
     body.light .hero {
-      background: linear-gradient(135deg, #ffffff, #e5f9f0);
+      background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.1), transparent 60%),
+        linear-gradient(135deg, #eff6ff, #e0f2fe);
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.13);
     }
 
@@ -448,8 +458,10 @@
       </div>
 
       <div class="hero-actions">
-        <!-- IMPORTANT: replace this path with your actual CV file path -->
+        <!-- Download CV button removed from view but kept in code as comment -->
+        <!--
         <a class="btn btn-primary" href="assets/Pryrak_Kumar_CV.pdf" target="_blank">Download CV</a>
+        -->
         <a class="btn btn-outline" href="mailto:pryrakkumar@gmail.com">Contact via Email</a>
       </div>
     </section>
@@ -536,7 +548,7 @@
 
       <!-- RIGHT COLUMN -->
       <div>
-        <!-- Profile & Links (no GitHub as requested) -->
+        <!-- Profile & Links (no GitHub profile, but site URL added) -->
         <aside class="card">
           <h2>Profile & Links</h2>
           <p><span class="label">Degree:</span> M.Sc. Environmental Science</p>
@@ -551,6 +563,12 @@
             <span class="label">LinkedIn:</span>
             <a href="https://www.linkedin.com/in/pryrak-kumar-b937963b1" target="_blank">
               linkedin.com/in/pryrak-kumar-b937963b1
+            </a>
+          </p>
+          <p>
+            <span class="label">Portfolio:</span>
+            <a href="https://pryrakkumar.github.io" target="_blank">
+              pryrakkumar.github.io
             </a>
           </p>
           <p>
@@ -597,32 +615,39 @@
     </section>
 
     <!-- ===============================
-         R PLOT GALLERY
+         R PLOT GALLERY (YOUR 3 PLOTS)
          =============================== -->
     <section class="card gallery" id="gallery">
       <h2>R Plot Gallery</h2>
       <p>
-        Example visualizations created in R using ggplot2. Export your plots as PNG files and place them
-        in a <code>plots/</code> folder in this repository, then update the file names below if needed.
+        Example visualizations created in R using ggplot2 and base R.
+        Export these plots as PNG and place them in a <code>plots/</code> folder
+        in this repository with the file names shown below.
       </p>
 
       <div class="gallery-grid">
+        <!-- 1) PM2.5 vs Temperature -->
         <div class="gallery-card">
-          <!-- Replace with your real plot file exported from R -->
-          <img src="plots/pm25_vs_temperature.png" alt="Scatter plot of PM2.5 vs Temperature">
-          <div>PM<sub>2.5</sub> vs Temperature (scatter + regression line)</div>
+          <img src="plots/pm25_vs_temperature.png" alt="PM2.5 vs Temperature with regression line">
+          <div>
+            PM<sub>2.5</sub> vs Temperature (ggplot2 scatter with regression line and confidence band).
+          </div>
         </div>
 
+        <!-- 2) Regression diagnostics from model -->
         <div class="gallery-card">
-          <!-- Replace with your real plot file -->
-          <img src="plots/pm25_vs_solar.png" alt="Scatter plot of PM2.5 vs Solar Radiation">
-          <div>PM<sub>2.5</sub> vs Solar Radiation showing strong positive association</div>
+          <img src="plots/regression_diagnostics.png" alt="Regression diagnostic plots">
+          <div>
+            Regression diagnostics: Residuals vs Fitted, Q–Q plot, Scale–Location and Residuals vs Leverage.
+          </div>
         </div>
 
+        <!-- 3) Boxplot across temperature groups -->
         <div class="gallery-card">
-          <!-- Replace with your real plot file -->
-          <img src="plots/time_series_pm25.png" alt="Time-series plot of PM2.5">
-          <div>Daily PM<sub>2.5</sub> levels over time (time-series visualization)</div>
+          <img src="plots/pm25_temp_groups.png" alt="Boxplot of PM2.5 by temperature group">
+          <div>
+            PM<sub>2.5</sub> levels across Low, Medium and High temperature groups (boxplot).
+          </div>
         </div>
       </div>
     </section>
@@ -652,7 +677,7 @@
       updateThemeText();
     });
 
-    // Initial label
+    // Set initial label
     updateThemeText();
   </script>
 </body>
