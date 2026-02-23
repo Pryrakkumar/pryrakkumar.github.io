@@ -1,178 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Pryrak Kumar | Environmental Science Researcher</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO -->
-    <meta name="description" content="Portfolio of Pryrak Kumar, M.Sc. Environmental Science student and environmental researcher with interests in air pollution, PM2.5, environmental health, and R-based data analysis.">
-    <meta name="keywords" content="Pryrak Kumar, environmental science, air pollution, PM2.5, Delhi, environmental health, R programming, MSc Environmental Science, IGNOU">
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 24px;
-            line-height: 1.6;
-            background-color: #f4f6f7;
-            color: #2c3e50;
-        }
-        .wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 28px 22px 32px;
-            border-radius: 10px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-        }
-        h1 {
-            color: #1b4f72;
-            margin-bottom: 0;
-        }
-        h2 {
-            border-bottom: 2px solid #1b4f72;
-            padding-bottom: 5px;
-            margin-top: 24px;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-        h3 {
-            margin-bottom: 4px;
-            font-size: 1rem;
-        }
-        a {
-            color: #154360;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .tagline {
-            margin-top: 4px;
-            font-weight: 600;
-        }
-        .section {
-            margin-bottom: 18px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        .chips {
-            margin-top: 6px;
-        }
-        .chip {
-            display: inline-block;
-            background: #eaf2f8;
-            border-radius: 999px;
-            padding: 3px 10px;
-            margin: 2px 4px 2px 0;
-            font-size: 0.8rem;
-            color: #1b4f72;
-        }
-        .meta {
-            font-size: 0.9rem;
-            color: #566573;
-        }
-        .contact-line {
-            margin: 2px 0;
-        }
-        footer {
-            margin-top: 24px;
-            font-size: 0.8rem;
-            color: #7b8a8b;
-            text-align: right;
-        }
-        @media (max-width: 600px) {
-            body {
-                padding: 12px;
-            }
-            .wrapper {
-                padding: 20px 16px 24px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Pryrak Kumar | Environmental Science Research Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- SEO -->
+  <meta name="description" content="Portfolio of Pryrak Kumar, M.Sc. Environmental Science student specializing in air pollution, PM2.5 analysis, environmental health, and R-based data science.">
+  <meta name="keywords" content="Pryrak Kumar, environmental science, air pollution, PM2.5, Delhi, R programming, regression analysis, MSc Environmental Science, IGNOU">
+  
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+    }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    body {
+      background: radial-gradient(circle at top, #1e293b, #020617 55%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+    .container {
+      width: 100%; max-width: 960px;
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 1.4rem;
+      border: 1px solid rgba(148,163,184,0.25);
+      box-shadow: 0 24px 60px rgba(15,23,42,0.9);
+      padding: 2.2rem 1.6rem 3rem;
+      backdrop-filter: blur(12px);
+    }
+    h1 {
+      font-size: 2rem; margin-bottom: 0.3rem;
+    }
+    .pill {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .actions a {
+      display: inline-flex;
+      padding: 0.55rem 1.1rem;
+      margin-right: 0.5rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #a3e635);
+      color: #042f1a;
+      box-shadow: 0 12px 30px rgba(34,197,94,0.35);
+    }
+    .btn-outline {
+      background: rgba(15,23,42,0.7);
+      border: 1px solid rgba(148,163,184,0.25);
+      color: var(--text-main);
+    }
+    .section {
+      margin-top: 2rem;
+      padding: 1.2rem;
+      background: var(--card);
+      border-radius: 1rem;
+      border: 1px solid rgba(148,163,184,0.35);
+    }
+    h2 {
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 0.4rem;
+    }
+    ul { margin-left: 1.2rem; }
+    .chip {
+      display: inline-block;
+      margin: 4px;
+      background: #020617;
+      border: 1px solid rgba(55,65,81,0.9);
+      color: var(--text-muted);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+    }
+    footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+  </style>
 </head>
-<body>
-<div class="wrapper">
 
-    <h1>Pryrak Kumar</h1>
-    <p class="tagline">M.Sc. Environmental Science | Environmental Researcher</p>
-    <p class="meta">
+<body>
+  <main class="container">
+
+    <!-- Header -->
+    <div>
+      <div class="pill">Environmental Science • Research Portfolio</div>
+      <h1>Pryrak Kumar</h1>
+      <div class="subtitle">
+        M.Sc. Environmental Science (IGNOU) • Air Pollution • PM2.5 Analysis • Environmental Data Science (R)
+      </div>
+
+      <div class="actions">
+        <a class="btn-primary" href="YOUR_CV_LINK.pdf" target="_blank">Download CV</a>
+        <a class="btn-outline" href="mailto:pryrakkumar@gmail.com">Email me</a>
+      </div>
+    </div>
+
+    <!-- About -->
+    <section class="section">
+      <h2>About Me</h2>
+      <p>
+        I am a postgraduate Environmental Science student specializing in air pollution analysis, PM2.5 monitoring, environmental health, and data-driven research. I use R programming for correlation, regression, time-series analysis, and visualization of environmental datasets.
+      </p>
+      <p style="margin-top: 0.6rem;">
         ORCID: <a href="https://orcid.org/0009-0009-4979-2516" target="_blank">0009-0009-4979-2516</a><br>
         GitHub: <a href="https://github.com/Pryrakkumar" target="_blank">github.com/Pryrakkumar</a><br>
-        LinkedIn: <a href="https://www.linkedin.com/in/pryrak-kumar-b937963b1" target="_blank">linkedin.com/in/pryrak-kumar-b937963b1</a>
-    </p>
+        LinkedIn: <a href="https://www.linkedin.com/in/pryrak-kumar-b937963b1" target="_blank">View Profile</a>
+      </p>
+    </section>
 
-    <div class="section">
-        <h2>About Me</h2>
-        <p>
-            I am a postgraduate student in Environmental Science with research interests in air pollution,
-            environmental health, and data-driven analysis of urban air quality. My work focuses on
-            understanding PM<sub>2.5</sub> exposure, public risk perception, and the role of meteorological
-            factors using statistical tools in R.
-        </p>
-    </div>
+    <!-- Research Interests -->
+    <section class="section">
+      <h2>Research Interests</h2>
+      <ul>
+        <li>Air pollution & PM2.5 monitoring</li>
+        <li>Environmental health & risk perception</li>
+        <li>Meteorological factors (Temperature, Rainfall, Solar radiation)</li>
+        <li>Data analysis & visualization using R</li>
+      </ul>
+      <div style="margin-top: 0.8rem;">
+        <span class="chip">Air Pollution</span>
+        <span class="chip">PM2.5</span>
+        <span class="chip">Environmental Health</span>
+        <span class="chip">R Programming</span>
+        <span class="chip">Regression Analysis</span>
+        <span class="chip">Time-Series</span>
+        <span class="chip">ggplot2</span>
+      </div>
+    </section>
 
-    <div class="section">
-        <h2>Research Interests</h2>
-        <ul>
-            <li>Air pollution and PM<sub>2.5</sub> analysis in urban environments</li>
-            <li>Environmental and public health impacts of poor air quality</li>
-            <li>Urban air quality monitoring and perception studies</li>
-            <li>Statistical analysis and visualization using R</li>
-        </ul>
-        <div class="chips">
-            <span class="chip">Air Pollution</span>
-            <span class="chip">PM2.5</span>
-            <span class="chip">Environmental Health</span>
-            <span class="chip">R Programming</span>
-            <span class="chip">Data Visualization</span>
-        </div>
-    </div>
+    <!-- Publication -->
+    <section class="section">
+      <h2>Publication</h2>
+      <p><strong>Public Perception of Air Pollution Exposure and Health Impacts in Central Delhi</strong></p>
+      <p>Journal of Emerging Technologies and Innovative Research (2026)</p>
+      <p>DOI: <a href="https://doi.org/10.56975/jetir.v13i2.575762" target="_blank">10.56975/jetir.v13i2.575762</a></p>
+      <p>
+        The study evaluates public awareness of PM2.5, perceived health risks, and behavioral responses in Delhi. It combines survey data with environmental indicators to highlight gaps between real and perceived pollution.
+      </p>
+    </section>
 
-    <div class="section">
-        <h2>Publication</h2>
-        <h3>Public Perception of Air Pollution Exposure and Health Impacts in Central Delhi</h3>
-        <p class="meta">
-            Kumar, P., &amp; Abhishek, A. (2026). <em>Journal of Emerging Technologies and Innovative Research</em>, 13(2).<br>
-            DOI: <a href="https://doi.org/10.56975/jetir.v13i2.575762" target="_blank">10.56975/jetir.v13i2.575762</a>
-        </p>
-        <p>
-            This study examines how residents in Central Delhi perceive air pollution, their awareness of
-            PM<sub>2.5</sub>-related health impacts, and their preparedness to adopt protective behaviour.
-            The work highlights gaps between measured air quality and public perception, with implications
-            for environmental communication and policy.
-        </p>
-    </div>
+    <!-- R Analysis Projects -->
+    <section class="section">
+      <h2>R Analysis Portfolio</h2>
+      <p><strong>Environmental Data Science Work (2024–2026)</strong></p>
+      <ul>
+        <li><strong>Correlation Analysis:</strong> PM2.5 vs Temperature, Rainfall, Solar Radiation</li>
+        <li><strong>Simple & Multiple Regression:</strong> Air quality predictions using meteorological variables</li>
+        <li><strong>Time-Series Plots:</strong> PM2.5 variation and weather trends</li>
+        <li><strong>Regression Diagnostics:</strong> Q-Q plots · Residuals · VIF · Shapiro-Wilk test</li>
+        <li><strong>Automated Research Pipeline:</strong> Import → Clean → Merge → Analyze → Plot</li>
+      </ul>
 
-    <div class="section">
-        <h2>Education</h2>
-        <p>
-            <strong>M.Sc. in Environmental Science</strong><br>
-            Indira Gandhi National Open University (IGNOU)
-        </p>
-    </div>
+      <p style="margin-top: 0.8rem;">
+        <strong>Tools & Packages:</strong> ggplot2, dplyr, tidyr, lubridate, stats
+      </p>
+    </section>
 
-    <div class="section">
-        <h2>Skills</h2>
-        <ul>
-            <li>R programming (data frames, ggplot2, correlation, regression, time-series plots)</li>
-            <li>Environmental data handling and basic statistical analysis</li>
-            <li>Questionnaire design and survey-based research</li>
-            <li>Scientific reading and basic academic writing</li>
-        </ul>
-    </div>
+    <!-- Education -->
+    <section class="section">
+      <h2>Education</h2>
+      <p><strong>M.Sc. Environmental Science</strong><br>Indira Gandhi National Open University (IGNOU)</p>
+    </section>
 
-    <div class="section">
-        <h2>Contact</h2>
-        <p class="contact-line">Email: <a href="mailto:pryrakkumar@gmail.com">pryrakkumar@gmail.com</a></p>
-    </div>
+    <!-- Contact -->
+    <section class="section">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:pryrakkumar@gmail.com">pryrakkumar@gmail.com</a></p>
+    </section>
 
     <footer>
-        Last updated: 2026 · Built with GitHub Pages
+      Last updated: 2026 · Built with GitHub Pages
     </footer>
 
-</div>
+  </main>
 </body>
 </html>
